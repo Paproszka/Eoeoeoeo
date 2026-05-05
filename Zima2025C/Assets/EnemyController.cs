@@ -18,11 +18,11 @@ public class EnemyController : MonoBehaviour
         navMeshAgent.SetDestination(playerTransform.position);
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            SceneManager.LoadScene("Demo");
+            other.GetComponent<PlayerController>().AddDamage(0.5f);
         } 
     }
 }

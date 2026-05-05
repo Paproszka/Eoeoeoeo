@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PlayerController : MonoBehaviour 
+public class PlayerController : MonoBehaviour
 {
     public Rigidbody rb;
     public Transform playerTransform;
@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
     public Vector3 distance;
 
     public float gameTime;
-    public int hp;
+    public float hp;
     public int coins;
 
     private void Start()
@@ -27,7 +27,7 @@ public class PlayerController : MonoBehaviour
         hp = 100;
     }
 
-    void Update ()
+    void Update()
     {
         gameTime = Time.timeSinceLevelLoad;
 
@@ -66,6 +66,15 @@ public class PlayerController : MonoBehaviour
         if (other.CompareTag("Coin"))
         {
             coins++;
+        }
+    }
+
+    public void AddDamage(float amount)
+    {
+        hp -= amount;
+        if (hp <= 0)
+        {
+            SceneManager.LoadScene("Demo");
         }
     }
 }
