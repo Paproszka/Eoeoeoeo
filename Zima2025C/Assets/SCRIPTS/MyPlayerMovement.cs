@@ -52,6 +52,7 @@ public class MyPlayerMovement : MonoBehaviour
         }
 
         Vector3 localVelocity = transform.InverseTransformDirection(cc.velocity);
+        animator.SetBool("Move",(localVelocity.x != 0 || localVelocity.z != 0 ));
         animator.SetFloat("MoveForward", localVelocity.z);
         animator.SetFloat("MoveRight", localVelocity.x);
         MoveDirection.y = yVeclocity;

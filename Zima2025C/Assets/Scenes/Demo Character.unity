@@ -4958,6 +4958,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4871161278653637037, guid: 944b60e4cd8fda049901fb49026983a4, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 1386152780}
     - target: {fileID: 5052303776974611097, guid: 944b60e4cd8fda049901fb49026983a4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 15.269676
@@ -13772,6 +13776,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 4289126748202998, guid: 9672218ecb324c240ae58e7a390701f2, type: 3}
   m_PrefabInstance: {fileID: 1372913757}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1386152780 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2244054153007837319, guid: 944b60e4cd8fda049901fb49026983a4, type: 3}
+  m_PrefabInstance: {fileID: 378344167}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1389280165
 PrefabInstance:
