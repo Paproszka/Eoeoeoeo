@@ -18,6 +18,10 @@ public class PlayerController : MonoBehaviour
     public float hp;
     public int coins;
 
+    public float SpeedBoostTime;
+    public float DefaultMaxVelocity;
+    public float SpeedBoostVelocity = 12;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -25,12 +29,20 @@ public class PlayerController : MonoBehaviour
         cameraTransform = GameObject.FindWithTag("MainCamera").GetComponent<Transform>();
 
         hp = 100;
+        DefaultMaxVelocity = rb.maxAngularVelocity;
     }
 
     void Update()
     {
         gameTime = Time.timeSinceLevelLoad;
-
+        speed = DefaultMaxVelocity;
+        rb.maxAngularVelocity = DefaultMaxVelocity;
+        SpeedBoostTime -= Time.deltaTime;
+        if (SpeedBoostTime > 0 )
+        {
+            speed = SpeedBoostVelocity;
+            rb.maxAngularVelocity = SpeedBoostVelocity;
+        }
         rb.AddTorque(speed * Time.deltaTime * Input.GetAxis("Vertical") * cameraTransform.right);
         rb.AddTorque(speed * Time.deltaTime * Input.GetAxis("Horizontal") * Vector3.Cross(Vector3.up, cameraTransform.right));
 
@@ -80,6 +92,6 @@ public class PlayerController : MonoBehaviour
 
     public void ActivateSpeedBoost()
     {
-
+        SpeedBoostTime = 5;
     }
 }
