@@ -77,4 +77,9 @@ public class PlayerController : MonoBehaviour
             SceneManager.LoadScene("Demo");
         }
     }
+
+    public void ActivateSpeedBoost()
+    {
+
+    }
 }
