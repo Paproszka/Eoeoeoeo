@@ -35,6 +35,8 @@ public class MyPlayerShooting : MonoBehaviour
 
             AttachWeapon(usingWeapon ? socketRightHand : socketSpine);
             animator.SetBool("UsingWeapon", usingWeapon);
+            if (usingWeapon == false)
+                ToggleFiring(false);
         }
 
         if (usingWeapon == false)
@@ -42,16 +44,13 @@ public class MyPlayerShooting : MonoBehaviour
 
         if (Input.GetButtonDown("Fire1"))
         {
-            //animator.SetLayerWeight(1, 1);
-            //animator.SetFloat("Firing", 1);
-            flamethrower.Play();
+            ToggleFiring(true);
         }
 
         if (Input.GetButtonUp("Fire1"))
         {
-            //animator.SetLayerWeight(1, 0);
-            //animator.SetFloat("Firing", 0);
-            flamethrower.Stop();
+            ToggleFiring(false);
+           
         }
     }
 
@@ -84,6 +83,22 @@ public class MyPlayerShooting : MonoBehaviour
         {
             weapon.transform.localPosition = Vector3.zero;
             weapon.transform.localEulerAngles = Vector3.zero;
+        }
+    }
+
+    private void ToggleFiring(bool active)
+    {
+        if (active == true)
+        {
+            animator.SetLayerWeight(1, 1);
+            animator.SetFloat("Firing", 1);
+            flamethrower.Play();
+        }
+        else
+        {
+            animator.SetLayerWeight(1, 0);
+            animator.SetFloat("Firing", 0);
+            flamethrower.Stop();
         }
     }
 }
