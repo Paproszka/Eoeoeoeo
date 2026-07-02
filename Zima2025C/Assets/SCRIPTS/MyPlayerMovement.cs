@@ -47,6 +47,7 @@ public class MyPlayerMovement : MonoBehaviour
             {
                 yVeclocity = JumpSpeed;
                 jumpDelay = 0;
+                animator.SetTrigger("Jumping");
             }
         }
 

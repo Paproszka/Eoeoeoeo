@@ -17,6 +17,7 @@ public class MyPlayerHealth : MonoBehaviour
     public MyPlayerMovement playerMovement;
     //public MyPlayerShooting playerShooting;
     public CharacterController cc;
+    public Animator animator;
 
     //public Slider healthBar;
     //public Image healthBarFillImage;
@@ -48,6 +49,7 @@ public class MyPlayerHealth : MonoBehaviour
             playerMovement.enabled = false;
             //playerShooting.enabled = false;
             cc.enabled = false;
+            animator.SetBool("Death", true); 
         }
     }
 
