@@ -37,9 +37,13 @@ public class PlayerController : MonoBehaviour
         gameTime = Time.timeSinceLevelLoad;
         speed = DefaultMaxVelocity;
         rb.maxAngularVelocity = DefaultMaxVelocity;
-        SpeedBoostTime -= Time.deltaTime;
         if (SpeedBoostTime > 0 )
         {
+            SpeedBoostTime -= Time.deltaTime;
+            if (SpeedBoostTime < 0)
+            {
+                SpeedBoostTime = 0;
+            }
             speed = SpeedBoostVelocity;
             rb.maxAngularVelocity = SpeedBoostVelocity;
         }
